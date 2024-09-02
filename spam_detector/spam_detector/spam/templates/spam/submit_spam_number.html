@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Submit Spam Number</title>
+    </head>
+    <body>
+        <h2>Submit Spam Number</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="spam_number">Spam Number:</label>
+            <input type="text" id="spam_number" name="spam_number" required>
+            <br>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description"></textarea>
+            <br>
+            <button type="submit">Submit</button><br>
+            
+        </form>
+        <form method="post" action="{% url 'logged_out1' %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+        <a href="{% url 'search_spam_numbers' %}">Search Spam Numbers</a>
+    </body>
+</html>
